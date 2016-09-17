@@ -5,7 +5,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 var config = {
     entry:{
-        index:path.resolve('src/index.js'),
+        index:path.resolve('src/js/index.jsx'),
         vendor:['jquery','moment'],
     },
     output:{
@@ -16,7 +16,7 @@ var config = {
     // },
     //指定如何解析加载模块
     resolve:{
-        extensions:["",".js",".json",".less"],
+        extensions:["",".js",".jsx",".json",".less",".scss"],
         alias:{
             // jquery:'jquery/dist/jquery.js',
             react:'react/dist/react.min.js',
@@ -42,6 +42,10 @@ var config = {
                 exclude:/node_modules/,
                 loader:ExtractTextPlugin.extract('style','css!less') //在向页面插入style 标签之前把css内容抽离出来
             },{
+                test:/\.scss$/,
+                exclude:/node_modules/,
+                loader:ExtractTextPlugin.extract('style','css!sass')
+            },{
                 test:/\.css$/,
                 loader:ExtractTextPlugin.extract('style','css')
             },{
@@ -59,7 +63,8 @@ var config = {
             jQuery: 'jquery',
             'window.jQuery': 'jquery',
             moment:'moment',
-            // React:'react'
+            ReactDOM:'react-dom',
+            React:'react',  //文件用不需要再import React from 'react' 或者require('react)
         }),
     ]
 }

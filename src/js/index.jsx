@@ -1,30 +1,24 @@
 // var $ = require('jquery');
-import React from 'react';
-import ReactDOM from 'react-dom';
+// import React from 'react';
+// import ReactDOM from 'react-dom';
 import Link from './page.jsx';
 import com from './component';
 
 
-var chars = ['0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
-
-function generateMixed(n) {
-    var res = "";
-    for(var i = 0; i < n ; i ++) {
-        var id = Math.ceil(Math.random()*35);
-        res += chars[id];
-    }
-    return res;
-}
-
-generateMixed(6);
-
 // console.log(name,age);
 console.log("com:",com);
 console.log("com:",com.jop);
-console.log("generateMixed:",generateMixed(6));
+
 // console.log(component.jop);
-require('./base.less');
-$('#app').html('你好!');
+require('../less/base.less');
+require('../sass/main.scss');
+
+
+
+$('#app').html('你好！！!');
+
+
+require('./components/App');
 
 let time = moment().locale('zh-cn').format('LLLL');
 
