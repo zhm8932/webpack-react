@@ -38,7 +38,8 @@ class TodoHeader extends React.Component{
         if(!text) return false;
         let newTodoItem = {
             text:text,
-            isDone:false
+            isDone:false,
+            isEdit:false
         }
 
         console.log('newTodoItem',newTodoItem);

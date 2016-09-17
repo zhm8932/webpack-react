@@ -59,6 +59,17 @@ class App extends React.Component{
         this.db.set('todos',this.state.todos);
         // this.setState({todos:this.state.todos})
     }
+    //修改任务
+    editStartTodo(index,isEdit){
+        this.state.todos[index].isEdit = isEdit;
+        this.allChecked();
+    }
+    //修改保存
+    editSavetTodo(index,isEdit,text){
+        this.state.todos[index].isEdit = isEdit;
+        this.state.todos[index].text = text;
+        this.allChecked();
+    }
     //添加任务，是传递给Header组件的方法
     addTodoItem(item){
         // console.log("this.state1:",this.state)
@@ -89,7 +100,7 @@ class App extends React.Component{
         return(
             <div className="panel">
                 <TodoHeader addTodoItem={this.addTodoItem.bind(this)}/>
-                <TodoMain deleteTodo={this.deleteTodo.bind(this)} changeTodoState={this.changeTodoState.bind(this)} todos={this.state.todos}/>
+                <TodoMain deleteTodo={this.deleteTodo.bind(this)} editStartTodo={this.editStartTodo.bind(this)} editSavetTodo={this.editSavetTodo.bind(this)}  changeTodoState={this.changeTodoState.bind(this)} todos={this.state.todos}/>
                 <TodoFooter clearDone={this.clearDone.bind(this)} changeTodoState={this.changeTodoState.bind(this)} isAllChecked={this.state.isAllChecked} {...props}/>
             </div>
         )

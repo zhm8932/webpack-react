@@ -74,7 +74,6 @@ header{
     margin-right: 10px;
   }
 }
-
 .app{
   padding: 10px 10px 50px;background: #FFFFFF;box-sizing: content-box;
   .panel{
@@ -86,6 +85,14 @@ header{
   }
   .todo-list{
     .complete{text-decoration: line-through;color:#999;
+    }
+    li{
+      .editBtn{
+        display: none;
+      }
+      &:hover{
+        .editBtn{display: inline-block;float: right;margin-right: 10px;}
+      }
     }
   }
 }
